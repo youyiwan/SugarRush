@@ -10,6 +10,8 @@ class SceneIntro(pyghelpers.Scene):
         self.startButtonText = pygwidgets.TextButton(MY_WINDOW, (325, 0),
                                                      'Start Game', fontSize=35,
                                                      overColor=RED, downColor=LIME)
+        self.introImage = pygwidgets.Image(MY_WINDOW, (0, 0), 'images/intro.png')
+
 
     def getSceneKey(self):
         return SCENE_INTRO
@@ -22,5 +24,5 @@ class SceneIntro(pyghelpers.Scene):
 
     def draw(self):
         self.MY_WINDOW.fill(BLUE)
+        self.introImage.draw()
         self.startButtonText.draw()
-
