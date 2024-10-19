@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1dc0fc81-6684-4392-b200-28abb8aa8e34" name="Changes" comment="Modify width to 800 and Create 'Start Game' button.">
-      <change beforePath="$PROJECT_DIR$/SceneIntro.py" beforeDir="false" afterPath="$PROJECT_DIR$/SceneIntro.py" afterDir="false" />
+    <list default="true" id="1dc0fc81-6684-4392-b200-28abb8aa8e34" name="Changes" comment="Add intro asset and draw image in intro scene.">
+      <change afterPath="$PROJECT_DIR$/SceneGame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/Constants.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MAIN.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,16 +46,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.MAIN.executor&quot;: &quot;Run&quot;,
-    &quot;Python.TEST.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/_YY/TCX3901/SugarRush&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.MAIN.executor": "Run",
+    "Python.Main.executor": "Run",
+    "Python.SceneGame.executor": "Run",
+    "Python.TEST.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/_YY/TCX3901/SugarRush",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -117,7 +122,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728797533826</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Add intro asset and draw image in intro scene.">
+      <option name="closed" value="true" />
+      <created>1728798185221</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1728798185221</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -136,6 +149,7 @@
     <MESSAGE value="1. Refactor MAIN python file.&#10;2. Create constants file and configure type of scenes" />
     <MESSAGE value="1. Create draft intro scene." />
     <MESSAGE value="Modify width to 800 and Create 'Start Game' button." />
-    <option name="LAST_COMMIT_MESSAGE" value="Modify width to 800 and Create 'Start Game' button." />
+    <MESSAGE value="Add intro asset and draw image in intro scene." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add intro asset and draw image in intro scene." />
   </component>
 </project>
