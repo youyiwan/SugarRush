@@ -2,6 +2,7 @@ import pyghelpers
 import pygwidgets
 from Constants import *
 import pygame
+import random
 
 MY_WINDOW = pygame.display.set_mode((GAME_WINDOW_WIDTH, GAME_WINDOW_HEIGHT))
 
@@ -76,23 +77,27 @@ class SceneGame(pyghelpers.Scene):
     def handleInputs(self, eventsList, keyPressedList):
         for event in eventsList:
             if self.playerbutton.handleEvent(event):
-                if 0 <= self.counter < 7 or 15 < self.counter < 23 or 31 < self.counter < 39 or 48 <= self.counter < 55:
-                    self.playerbutton.moveX(100)
-                    print(self.playerbutton.getLoc())
-                    self.counter = self.counter + 1
-                    print(self.counter)
-                elif 8 <= self.counter <= 14 or 23 < self.counter < 31 or 39 < self.counter < 47 or 55 < self.counter < 63:
-                    self.playerbutton.moveX(-100)
-                    self.counter = self.counter + 1
-                    print(self.playerbutton.getLoc())
-                    print(self.counter)
-                elif self.counter == 7 or self.counter == 15 or self.counter == 23 or self.counter == 31 or self.counter == 39 or self.counter == 47 or self.counter == 55:
-                    self.playerbutton.moveY(-100)
-                    self.counter = self.counter + 1
-                    print(self.playerbutton.getLoc())
-                    print(self.counter)
-                elif self.counter >= 63:
-                    print(self.playerbutton.getLoc())
+                jump = random.randint(1, 6)
+                print('The dice roll is ')
+                print(jump)
+                for i in range(jump):
+                    if 0 <= self.counter < 7 or 15 < self.counter < 23 or 31 < self.counter < 39 or 48 <= self.counter < 55:
+                        self.playerbutton.moveX(100)
+                        print(self.playerbutton.getLoc())
+                        self.counter = self.counter + 1
+                        print(self.counter)
+                    elif 8 <= self.counter <= 14 or 23 < self.counter < 31 or 39 < self.counter < 47 or 55 < self.counter < 63:
+                        self.playerbutton.moveX(-100)
+                        self.counter = self.counter + 1
+                        print(self.playerbutton.getLoc())
+                        print(self.counter)
+                    elif self.counter == 7 or self.counter == 15 or self.counter == 23 or self.counter == 31 or self.counter == 39 or self.counter == 47 or self.counter == 55:
+                        self.playerbutton.moveY(-100)
+                        self.counter = self.counter + 1
+                        print(self.playerbutton.getLoc())
+                        print(self.counter)
+                    elif self.counter >= 63:
+                        print(self.playerbutton.getLoc())
 
     def draw(self):
         self.MY_WINDOW.fill(BLUE)
