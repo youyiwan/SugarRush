@@ -1,6 +1,9 @@
 #Type of Scenes
 SCENE_INTRO = 'Intro'
 SCENE_GAME = 'SugarRush'
+SCENE_EXCERCISE = 'excercise'
+SCENE_END = 'end'
+SCENE_DONUT = 'play'
 
 # WINDOW DEFINITIONS
 LIME = (180,255,100)
@@ -16,3 +19,4 @@ BLUE = (0,0,255)
 RED = (255, 0, 0)
 YELLOW = (255,255,0)
 PINK = (251,160,227)
+DANDILION_YELLOW = (255,200,0)
