@@ -3,6 +3,7 @@ import pygwidgets
 from Constants import *
 import pygame
 import random
+from GameState import *
 
 MY_WINDOW = pygame.display.set_mode((GAME_WINDOW_WIDTH, GAME_WINDOW_HEIGHT))
 
@@ -15,15 +16,16 @@ def draw_cubes(MY_WINDOW):
         for col in range(row % 2, ROWS, 2):
             pygame.draw.rect(MY_WINDOW, PINK, (row * SQUARE_SIZE, col * SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE))
 class SceneGame(pyghelpers.Scene):
-    def __init__(self, MY_WINDOW):
+    def __init__(self, MY_WINDOW, GameState):
+        self.GameState = GameState
         self.step = 0
         self.food = None
         self.foodButton = None
         self.MY_WINDOW = MY_WINDOW
         self.counter = 0
-        self.playerScore = 0
+        self.myScore = player1.score
 
-        self.playerbutton = pygwidgets.CustomButton(self.MY_WINDOW, (0, 700),
+        self.playerButton = pygwidgets.CustomButton(self.MY_WINDOW, (0, 700),
                                                     up='images/player.png',
                                                     down='images/player.png',
                                                     over='images/player.png')
@@ -178,35 +180,79 @@ class SceneGame(pyghelpers.Scene):
 
     def handleInputs(self, eventsList, keyPressedList):
         for event in eventsList:
-            if self.playerbutton.handleEvent(event):
+            if self.playerButton.handleEvent(event):
                 jump = random.randint(1, 6)
                 print('The dice roll is ')
                 print(jump)
                 for i in range(jump):
                     if 0 <= self.counter < 7 or 15 < self.counter < 23 or 31 < self.counter < 39 or 48 <= self.counter < 55:
-                        self.playerbutton.moveX(100)
-                        print(self.playerbutton.getLoc())
+                        self.playerButton.moveX(100)
+                        print(self.playerButton.getLoc())
                         self.counter = self.counter + 1
                         print(self.counter)
                     elif 8 <= self.counter <= 14 or 23 < self.counter < 31 or 39 < self.counter < 47 or 55 < self.counter < 63:
-                        self.playerbutton.moveX(-100)
+                        self.playerButton.moveX(-100)
                         self.counter = self.counter + 1
-                        print(self.playerbutton.getLoc())
+                        print(self.playerButton.getLoc())
                         print(self.counter)
                     elif self.counter == 7 or self.counter == 15 or self.counter == 23 or self.counter == 31 or self.counter == 39 or self.counter == 47 or self.counter == 55:
-                        self.playerbutton.moveY(-100)
+                        self.playerButton.moveY(-100)
                         self.counter = self.counter + 1
-                        print(self.playerbutton.getLoc())
+                        print(self.playerButton.getLoc())
                         print(self.counter)
                     elif self.counter >= 63:
-                        print(self.playerbutton.getLoc())
+                        print(self.playerButton.getLoc())
+                if self.playerButton.overlapsObject(self.donut_1Button):
+                    self.goToScene(SCENE_DONUT, player1.score)
+                if self.playerButton.overlapsObject(self.donut_2Button):
+                    self.goToScene(SCENE_DONUT,player1.score)
+                if self.playerButton.overlapsObject(self.donut_3Button):
+                    self.goToScene(SCENE_DONUT,player1.score)
+                if self.playerButton.overlapsObject(self.donut_4Button):
+                    self.goToScene(SCENE_DONUT,player1.score)
+                if self.playerButton.overlapsObject(self.donut_5Button):
+                    self.goToScene(SCENE_DONUT,player1.score)
+                if self.playerButton.overlapsObject(self.donut_6Button):
+                    self.goToScene(SCENE_DONUT,player1.score)
+                if self.playerButton.overlapsObject(self.donut_7Button):
+                    self.goToScene(SCENE_DONUT,player1.score)
+                if self.playerButton.overlapsObject(self.donut_8Button):
+                    self.goToScene(SCENE_DONUT,player1.score)
+                if self.playerButton.overlapsObject(self.donut_9Button):
+                    self.goToScene(SCENE_DONUT,player1.score)
+                if self.playerButton.overlapsObject(self.donut_10Button):
+                    self.goToScene(SCENE_DONUT,player1.score)
+                if self.playerButton.overlapsObject(self.donut_11Button):
+                    self.goToScene(SCENE_DONUT,player1.score)
+                if self.playerButton.overlapsObject(self.workout1Button):
+                    self.goToScene(SCENE_EXCERCISE,player1.score)
+                if self.playerButton.overlapsObject(self.workout2Button):
+                    self.goToScene(SCENE_EXCERCISE,player1.score)
+                if self.playerButton.overlapsObject(self.workout3Button):
+                    self.goToScene(SCENE_EXCERCISE,player1.score)
+                if self.playerButton.overlapsObject(self.workout4Button):
+                    self.goToScene(SCENE_EXCERCISE,player1.score)
+                if self.playerButton.overlapsObject(self.workout5Button):
+                    self.goToScene(SCENE_EXCERCISE,player1.score)
+                if self.playerButton.overlapsObject(self.workout6Button):
+                    self.goToScene(SCENE_EXCERCISE, player1.score)
+                if self.playerButton.overlapsObject(self.workout7Button):
+                    self.goToScene(SCENE_EXCERCISE, player1.score)
+                if self.playerButton.overlapsObject(self.workout8Button):
+                    self.goToScene(SCENE_EXCERCISE, player1.score)
+                if self.playerButton.overlapsObject(self.workout9Button):
+                    self.goToScene(SCENE_EXCERCISE, player1.score)
+                if self.playerButton.overlapsObject(self.workout10Button):
+                    self.goToScene(SCENE_EXCERCISE, player1.score)
+                if self.playerButton.overlapsObject(self.finishButton):
+                    self.goToScene(SCENE_END)
 
     def draw(self):
         self.MY_WINDOW.fill(BLUE)
         draw_cubes(MY_WINDOW)
         # self.fill_OddBoard()
         # self.fill_EvenBoard()
-        self.playerbutton.draw()
+        self.playerButton.draw()
         self.donut_1Button.draw()
         self.donut_2Button.draw()
         self.donut_3Button.draw()
@@ -229,3 +275,4 @@ class SceneGame(pyghelpers.Scene):
         self.workout9Button.draw()
         self.workout10Button.draw()
         self.finishButton.draw()
+        self.playerButton.draw()
