@@ -26,10 +26,7 @@ class SceneEnd(pyghelpers.Scene):
         self.updateButtonText = pygwidgets.TextButton(window, (300, 135),
                                                       'Update Glucose', fontSize=35,
                                                       overColor=RED, downColor=LIME)
-        self.diceButton = pygwidgets.ImageCollection(
-            self.window, (250, 250),
-            {1: "images/dice.png"}, 1,
-        )
+
 
         self.healthScoreCounterText = pygwidgets.DisplayText(
             self.window, (25, 25), 'Glucose:',
@@ -39,6 +36,9 @@ class SceneEnd(pyghelpers.Scene):
             self.window, (180, 25), "",
             fontSize=50, textColor=BLACK)
 
+        self.updateButtonText = pygwidgets.TextButton(window, (300, 135),
+                                                      'Get Final Score', fontSize=35,
+                                                      overColor=RED, downColor=LIME)
 
         self.returntoBoardText = pygwidgets.TextButton(window, (275, 500),
                                                        'Return to Board', fontSize=35,
@@ -54,8 +54,8 @@ class SceneEnd(pyghelpers.Scene):
     def handleInputs(self, eventsList, keyPressedList):
         for event in eventsList:
             if self.updateButtonText.handleEvent(event):
-                self.counter = self.counter + 1
-                increaseScore()
+                # self.counter = self.counter + 1
+                # increaseScore()
                 self.score.setValue(player1.getScore())
                 print(player1.getScore())
                 # player1.save_score()
@@ -67,7 +67,7 @@ class SceneEnd(pyghelpers.Scene):
     def draw(self):
         self.window.fill(DANDILION_YELLOW)
         self.titleField.draw()
-        # self.updateButtonText.draw()
+        self.updateButtonText.draw()
         self.healthScoreCounterText.draw()
         self.score.draw()
         # self.diceButton.draw()

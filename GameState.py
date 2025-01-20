@@ -14,7 +14,7 @@ def decreaseScoreOverDose():
 
 class GameState:
     def __init__(self):
-        self.score = 70
+        self.score = 100
 
     def getScore(self):
         return self.score
