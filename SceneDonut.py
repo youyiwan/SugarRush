@@ -30,9 +30,9 @@ class SceneDonut(pyghelpers.Scene):
         self.titleField = pygwidgets.DisplayText(self.window, (75, 90), 'You have consumed a donut',
                                                  fontSize=50, textColor=BLACK, width=610, justified='center')
 
-        self.updateButtonText = pygwidgets.TextButton(window, (300, 135),
-                                                      'Update Glucose', fontSize=35,
-                                                      overColor=RED, downColor=LIME)
+        # self.updateButtonText = pygwidgets.TextButton(window, (300, 135),
+        #                                               'Update Glucose', fontSize=35,
+        #                                               overColor=RED, downColor=LIME)
 
         self.diceButton = pygwidgets.ImageCollection(
             self.window, (250, 250),
@@ -49,7 +49,7 @@ class SceneDonut(pyghelpers.Scene):
             self.window, (180, 25), "<Donut increases glucose by +15>",
             fontSize=50, textColor=BLACK)
 
-        self.returntoBoardText = pygwidgets.TextButton(window, (275, 500),
+        self.returntoBoardText = pygwidgets.TextButton(window, (300, 135),
                                                        'Return to Board', fontSize=35,
                                                        overColor=RED, downColor=LIME)
 
@@ -66,12 +66,12 @@ class SceneDonut(pyghelpers.Scene):
 
     def handleInputs(self, eventsList, keyPressedList):
         for event in eventsList:
-            if self.updateButtonText.handleEvent(event):
-                self.counter = self.counter + 1
-                increaseScore()
-                self.score.setValue(player1.getScore())
-                print(player1.getScore())
-                player1.save_score()
+            # if self.updateButtonText.handleEvent(event):
+            #     self.counter = self.counter + 1
+            #     increaseScore()
+            #     self.score.setValue(player1.getScore())
+            #     print(player1.getScore())
+            #     player1.save_score()
             if self.returntoBoardText.handleEvent(event):
                 # myScore = GameState.load_score()
                 # myScore -= 10
@@ -81,6 +81,11 @@ class SceneDonut(pyghelpers.Scene):
                 # GameState.save_score()
                 # myScore = GameState.load_score()
                 # print(myScore)
+                self.counter = self.counter + 1
+                increaseScore()
+                self.score.setValue(player1.getScore())
+                print(player1.getScore())
+                player1.save_score()
                 self.goToScene(SCENE_GAME,self.myScore)
 
 
@@ -88,7 +93,7 @@ class SceneDonut(pyghelpers.Scene):
     def draw(self):
         self.window.fill(DANDILION_YELLOW)
         self.titleField.draw()
-        self.updateButtonText.draw()
+        # self.updateButtonText.draw()
         self.healthScoreCounterText.draw()
         self.score.draw()
         self.diceButton.draw()

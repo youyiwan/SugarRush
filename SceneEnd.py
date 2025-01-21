@@ -21,7 +21,7 @@ class SceneEnd(pyghelpers.Scene):
         self.window = window
         self.counter = 1
         self.myScore = player1.getScore()
-        self.titleField = pygwidgets.DisplayText(self.window, (75, 90), 'The End.',
+        self.titleField = pygwidgets.DisplayText(self.window, (80, 90), 'The End',
                                                  fontSize=50, textColor=BLACK, width=610, justified='center')
         self.updateButtonText = pygwidgets.TextButton(window, (300, 135),
                                                       'Update Glucose', fontSize=35,
@@ -40,7 +40,7 @@ class SceneEnd(pyghelpers.Scene):
                                                       'Get Final Score', fontSize=35,
                                                       overColor=RED, downColor=LIME)
 
-        self.returntoBoardText = pygwidgets.TextButton(window, (275, 500),
+        self.returntoBoardText = pygwidgets.TextButton(window, (300, 250),
                                                        'Return to Board', fontSize=35,
                                                        overColor=RED, downColor=LIME)
 

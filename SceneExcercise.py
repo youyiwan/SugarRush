@@ -17,9 +17,9 @@ class SceneExcercise(pyghelpers.Scene):
         self.myScore = player1.getScore()
         self.titleField = pygwidgets.DisplayText(self.window, (75, 90), 'Congratulations! You had a workout.',
                                                  fontSize=50, textColor=BLACK, width=610, justified='center')
-        self.updateButtonText = pygwidgets.TextButton(window, (300, 135),
-                                                      'Update Glucose', fontSize=35,
-                                                      overColor=RED, downColor=LIME)
+        # self.updateButtonText = pygwidgets.TextButton(window, (300, 135),
+        #                                               'Update Glucose', fontSize=35,
+        #                                               overColor=RED, downColor=LIME)
         self.diceButton = pygwidgets.ImageCollection(
             self.window, (250, 250),
             {1: "images/dice.png"}, 1,
@@ -34,7 +34,7 @@ class SceneExcercise(pyghelpers.Scene):
             fontSize=50, textColor=BLACK)
 
 
-        self.returntoBoardText = pygwidgets.TextButton(window, (275, 500),
+        self.returntoBoardText = pygwidgets.TextButton(window, (300, 135),
                                                        'Return to Board', fontSize=35,
                                                        overColor=RED, downColor=LIME)
 
@@ -47,20 +47,24 @@ class SceneExcercise(pyghelpers.Scene):
 
     def handleInputs(self, eventsList, keyPressedList):
         for event in eventsList:
-            if self.updateButtonText.handleEvent(event):
+            # if self.updateButtonText.handleEvent(event):
+            #     self.counter = self.counter + 1
+            #     decreaseScore()
+            #     self.score.setValue(player1.getScore())
+            #     print(player1.getScore())
+                # player1.save_score()
+            if self.returntoBoardText.handleEvent(event):
                 self.counter = self.counter + 1
                 decreaseScore()
                 self.score.setValue(player1.getScore())
                 print(player1.getScore())
-                # player1.save_score()
-            if self.returntoBoardText.handleEvent(event):
                 self.goToScene(SCENE_GAME, self.myScore)
 
 
     def draw(self):
         self.window.fill(DANDILION_YELLOW)
         self.titleField.draw()
-        self.updateButtonText.draw()
+        # self.updateButtonText.draw()
         self.healthScoreCounterText.draw()
         self.score.draw()
         self.diceButton.draw()
